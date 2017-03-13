@@ -1,0 +1,10 @@
+.vs/
+bin/
+obj/
+packages/
+TestResults/
+*.suo
+*.user
+OnTheFly/Web.config
+OnTheFly/Web.Debug.config
+OnTheFly/Web.Release.config
