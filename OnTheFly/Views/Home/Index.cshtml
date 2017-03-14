@@ -1,0 +1,32 @@
+﻿@model OnTheFly.Models.HomeModel
+@{
+    ViewBag.Title = "On-The-Fly";
+}
+
+<h2>On-The-Fly</h2>
+<div>
+    Current User: @Model.CurrentDisplayName [<a href="@Model.LogInUrl">sign out</a>]
+</div>
+<hr />
+<div>
+    <strong>Resource Interlocks</strong>
+    <table class="interlocks">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>State</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var res in Model.OnTheFlyResources)
+            {
+                <tr>
+                    <td>@res.GetResourceID()</td>
+                    <td>@res.GetResourceName()</td>
+                    <td>@res.GetState()</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
