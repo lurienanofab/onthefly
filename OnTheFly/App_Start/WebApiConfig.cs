@@ -14,48 +14,6 @@ namespace OnTheFly
 
 			// Web API routes
 			config.MapHttpAttributeRoutes();
-
-			config.Routes.MapHttpRoute(
-				name: "ApiInterlock",
-				routeTemplate: "api/interlock/{action}",
-				defaults: new { controller = "ApiInterlock" }
-			);
-
-			config.Routes.MapHttpRoute(
-				name: "ApiInterlockDefault",
-				routeTemplate: "api/interlock",
-				defaults: new { controller = "ApiInterlock", action = "GetState" }
-			);
-
-			config.Routes.MapHttpRoute(
-				name: "ApiClientCode",
-				routeTemplate: "api/clientcode/getlatestcode",
-				defaults: new { controller = "ApiClientCode", action = "GetLatestCode" }
-			);
-
-			config.Routes.MapHttpRoute(
-				name: "ApiCardSwipe",
-				routeTemplate: "api/reservation/cardswipe",
-				defaults: new { controller = "ApiReservation", action = "CardSwipe" }
-			);
-
-			//config.Routes.MapHttpRoute(
-			//	name: "ApiReservationStart",
-			//	routeTemplate: "api/reservation/start",
-			//	defaults: new { controller = "ApiReservation", action = "Start" }
-			//);
-
-			//config.Routes.MapHttpRoute(
-			//	name: "ApiReservationStop",
-			//	routeTemplate: "api/reservation/stop",
-			//	defaults: new { controller = "ApiReservation", action = "Stop" }
-			//);
-
-			config.Routes.MapHttpRoute(
-				name: "ApiReservation",
-				routeTemplate: "api/reservation/{action}",
-				defaults: new { controller = "ApiReservation" }
-			);
 		}
 	}
 }

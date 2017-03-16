@@ -41,7 +41,6 @@
     <add key="WagoEnabled" value="true"/>
     <add key="IPWhitelist" value="192.168.1.*,127.0.0.1"/>
     <add key="MongoConnectionString" value="mongodb://xxxxx:xxxxx@localhost"/>
-    <add key="owin:AutomaticAppStartup" value="false"/>
     <add key="webpages:Version" value="3.0.0.0"/>
     <add key="webpages:Enabled" value="false"/>
     <add key="ClientValidationEnabled" value="true"/>
@@ -88,7 +87,6 @@
     <validation validateIntegratedModeConfiguration="false"/>
 
     <modules runAllManagedModulesForAllRequests="true">
-      <add name="LnfSessionModule" type="LNF.Impl.SessionModule" preCondition="managedHandler"/>
     </modules>
 
     <handlers>
