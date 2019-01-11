@@ -1,11 +1,10 @@
-﻿using LNF.Impl;
-using Microsoft.Owin;
+﻿using LNF;
+using LNF.Impl.DependencyInjection.Web;
+using LNF.Web;
 using Owin;
 using System.Web.Http;
 using System.Web.Mvc;
 using System.Web.Routing;
-
-[assembly: OwinStartup(typeof(OnTheFly.Startup))]
 
 namespace OnTheFly
 {
@@ -13,6 +12,8 @@ namespace OnTheFly
     {
         public void Configuration(IAppBuilder app)
         {
+            ServiceProvider.Current = IOC.Resolver.GetInstance<ServiceProvider>();
+
             // data
             app.UseDataAccess();
 

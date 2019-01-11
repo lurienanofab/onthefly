@@ -4,7 +4,6 @@ using LNF.Repository.Scheduler;
 using OnTheFly.Models;
 using System.Configuration;
 using System.Net.Http;
-using System.Threading.Tasks;
 using System.Web.Http;
 
 namespace OnTheFly.Controllers
@@ -12,7 +11,7 @@ namespace OnTheFly.Controllers
     public class ApiReservationController : ApiController
     {
         [HttpGet, Route("api/reservation/cardswipe")]
-        public async Task<ApiModel> CardSwipe([FromUri] ApiModel model, string cardswipedata, int buttonindex)
+        public ApiModel CardSwipe([FromUri] ApiModel model, string cardswipedata, int buttonindex)
         {
             OnTheFlyResource otfr = ReservationOnTheFlyUtil.GetOnTheFlyResource(cardswipedata, buttonindex);
 
@@ -23,7 +22,7 @@ namespace OnTheFly.Controllers
             else
             {
                 OnTheFlyImpl oimp = new OnTheFlyImpl(otfr, cardswipedata, Request.GetOwinContext().Request.RemoteIpAddress);
-                await oimp.Swipe();
+                oimp.Swipe();
 
                 string strFS = (oimp.IsProcessFailed()) ? "failed" : "started";
                 model.ServerResponse = otfr.GetResourceTypeAsString() + "_reservation_" + strFS;

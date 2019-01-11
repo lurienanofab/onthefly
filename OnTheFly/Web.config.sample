@@ -1,4 +1,4 @@
-<?xml version="1.0"?>
+<?xml version="1.0" encoding="utf-8"?>
 <!--
   For more information on how to configure your ASP.NET application, please visit
   http://go.microsoft.com/fwlink/?LinkId=169433
@@ -6,50 +6,45 @@
 <configuration>
   <configSections>
     <sectionGroup name="lnf">
-      <section name="providers" type="LNF.ProvidersSection, LNF"/>
-      <section name="redis" type="LNF.Impl.Redis.RedisConfigurationSection, LNF.Impl"/>
+      <section name="provider" type="LNF.ServiceProviderSection, LNF" />
     </sectionGroup>
   </configSections>
 
   <lnf>
-    <providers production="false">
-      <context type="LNF.Impl.WebContextProvider, LNF.Impl" loginUrl="/login"/>
-      <dataAccess type="LNF.Impl.NHibernateWebDataAccess, LNF.Impl" showSql="true"/>
-      <serialization type="LNF.Impl.Serialization.SerializationProvider, LNF.Impl"/>
-      <physicalAccess type="LNF.Impl.PhysicalAccess.ProwatchPhysicalAccess, LNF.Impl"/>
-      <email type="LNF.Impl.Email.EmailProvider, LNF.Impl" host="127.0.0.1" log="true"/>
-      <control type="LNF.Impl.Control.Wago.WagoControl, LNF.Impl" host="http://wagosvr:7778/"/>
-      <log type="LNF.Impl.Logging.ServiceLogProvider, LNF.Impl" name="OnTheFly" enabled="true"/>
-      <modelFactory type="LNF.Impl.ModelFactory.ValueInjecterModelFactory, LNF.Impl"/>
-    </providers>
-    <redis>
-      <connection host="cachesvr" databaseId="5" />
-    </redis>
+    <provider production="false">
+      <context loginUrl="/login" />
+      <dataAccess showSql="true" />
+      <email host="xxxxx" log="true"/>
+      <control host="xxxxx" />
+      <log name="OnTheFly" enabled="true" />
+    </provider>
   </lnf>
 
   <connectionStrings>
-    <add name="cnSselData" connectionString="Server=xxxxx;Database=xxxxx;User Id=xxxxx;Password=xxxxx"/>
-    <add name="cnSselControl" connectionString="Server=xxxxx;Database=xxxxx;User Id=xxxxx;Password=xxxxx"/>
-    <add name="cnSselScheduler" connectionString="Server=xxxxx;Database=xxxxx;User Id=xxxxx;Password=xxxxx"/>
+    <add name="cnSselData" connectionString="xxxxx"/>
+    <add name="cnSselControl" connectionString="xxxxx"/>
+    <add name="cnSselScheduler" connectionString="xxxxx"/>
   </connectionStrings>
 
   <appSettings>
     <add key="PreserveLoginUrl" value="true"/>
-    <add key="otf:Files" value="C:\onthefly-python\"/>
+    <add key="otf:Files" value="xxxxx"/>
     <add key="otf:ReturnFullLog" value="true"/>
     <add key="otf:ButtonPressWaitTime" value="30"/>
     <add key="WagoEnabled" value="true"/>
-    <add key="IPWhitelist" value="192.168.1.*,127.0.0.1"/>
-    <add key="MongoConnectionString" value="mongodb://xxxxx:xxxxx@localhost"/>
+    <add key="IPWhitelist" value="xxxxx"/>
+    <add key="MongoConnectionString" value="xxxxx"/>
     <add key="webpages:Version" value="3.0.0.0"/>
     <add key="webpages:Enabled" value="false"/>
     <add key="ClientValidationEnabled" value="true"/>
     <add key="UnobtrusiveJavaScriptEnabled" value="true"/>
+    <add key="owin:AppStartup" value="OnTheFly.Startup, OnTheFly"/>
   </appSettings>
 
   <system.web>
-    <compilation debug="true" targetFramework="4.6.1"/>
-    <httpRuntime targetFramework="4.6.1"/>
+    <compilation debug="true" targetFramework="4.7"/>
+
+    <httpRuntime targetFramework="4.7"/>
 
     <pages>
       <namespaces>
@@ -63,7 +58,7 @@
     </pages>
 
     <authentication mode="Forms">
-      <forms name="sselAuth.cookie" path="/" loginUrl="/login" timeout="480" protection="All" slidingExpiration="true" domain="umich.edu" cookieless="UseCookies"/>
+      <forms name="xxxxx" path="/" loginUrl="/login" timeout="480" protection="All" slidingExpiration="true" domain="xxxxx" cookieless="UseCookies"/>
     </authentication>
 
     <authorization>
@@ -85,9 +80,7 @@
 
   <system.webServer>
     <validation validateIntegratedModeConfiguration="false"/>
-
-    <modules runAllManagedModulesForAllRequests="true">
-    </modules>
+    <modules runAllManagedModulesForAllRequests="true"/>
 
     <handlers>
       <remove name="ExtensionlessUrlHandler-Integrated-4.0"/>
