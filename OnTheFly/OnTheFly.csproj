@@ -119,6 +119,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\ApiClientCodeController.cs" />
+    <Compile Include="Controllers\ApiDefaultController.cs" />
     <Compile Include="Controllers\ApiInterlockController.cs" />
     <Compile Include="Controllers\ApiReservationController.cs" />
     <Compile Include="Controllers\HomeController.cs" />

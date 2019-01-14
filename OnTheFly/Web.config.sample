@@ -27,6 +27,9 @@
   </connectionStrings>
 
   <appSettings>
+    <add key="ApiBaseUrl" value="xxxxx"/>
+    <add key="BasicAuthUsername" value="xxxxx"/>
+    <add key="BasicAuthPassword" value="xxxxx"/>
     <add key="PreserveLoginUrl" value="true"/>
     <add key="otf:Files" value="xxxxx"/>
     <add key="otf:ReturnFullLog" value="true"/>
